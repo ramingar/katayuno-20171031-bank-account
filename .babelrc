@@ -1,0 +1,11 @@
+{
+  "env": {
+    "dev": {
+      "presets": ["es2015-rollup"],
+      "plugins": ["external-helpers"]
+    },
+    "test": {
+      "presets": ["es2015"]
+    }
+  }
+}
