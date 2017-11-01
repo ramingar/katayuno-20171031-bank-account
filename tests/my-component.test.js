@@ -17,7 +17,7 @@ const BankAccount = function () {
         return [balance];
     };
 
-    const ToString = function () {
+    const toString = function () {
         let detailedBalance = 'date || credit || balance\r\n';
         incomes.forEach((val) => {
             detailedBalance += `${val.iDate} || ${val.iCredit} || ${val.iCredit}\r\n`;
@@ -26,7 +26,7 @@ const BankAccount = function () {
         return detailedBalance;
     };
 
-    return {updateIncome, getBalance, ToString};
+    return {updateIncome, getBalance, toString};
 };
 
 // TESTS
@@ -48,7 +48,7 @@ test('-------- Retrieving One Income (in text)', (assert) => {
     const expected = 'date || credit || balance\r\n02/04/2014 || 5 || 5\r\n';
 
     const bankAccount = BankAccount();
-    const actual = bankAccount.updateIncome('02/04/2014', '5').ToString();
+    const actual = bankAccount.updateIncome('02/04/2014', '5').toString();
 
     assert.equal(actual, expected, message);
 
