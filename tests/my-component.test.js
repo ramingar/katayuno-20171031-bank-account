@@ -1,15 +1,38 @@
 import test from 'tape';
 
 // Component to test
+const BankAccount = function () {
+    //let incomeDate = null;
+    //let incomeCredit = null;
+    const incomes = [];
 
-// Testear que puedes puntuar desde 0 hasta 10 en primera
-test('-------- Component: test ...', (assert) => {
-    const message = 'Message when error';
-    const expected = 1;
+    const updateIncome = function (iDate, iCredit) {
+        //incomeDate = iDate;
+        //incomeCredit = iCredit;
+        incomes.push({iDate, iCredit});
+    };
+    const getBalance = function () {
+        //return [{date: incomeDate, credit: incomeCredit, balance: incomeCredit}];
+        let balance = null;
+        incomes.forEach(function (val) {
+            balance = {date: val.iDate, credit: val.iCredit, balance: val.iCredit}
+        });
+        return [balance];
+    };
 
-    const actual = 'component return';
+    return {updateIncome, getBalance};
+};
 
-    assert.equal(actual, expected, message);
+// TESTS
+test('-------- Retrieving One Income ', (assert) => {
+    const message = 'The Balance is five and the first Income is five.';
+    const expected = [{date: '02/04/2014', credit: '5', balance: '5'}];
+
+    const bankAccount = BankAccount();
+    bankAccount.updateIncome('02/04/2014', '5');
+    const actual = bankAccount.getBalance();
+
+    assert.deepEqual(actual, expected, message);
 
     assert.end();
 });
