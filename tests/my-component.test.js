@@ -4,15 +4,15 @@ import test from 'tape';
 const BankAccount = function () {
     const incomes = [];
 
-    const updateIncome = function (iDate, iCredit) {
-        incomes.push({iDate, iCredit});
+    const updateIncome = function (incomeDate, incomeCredit) {
+        incomes.push({incomeDate, incomeCredit});
         return this;
     };
 
     const getBalance = function () {
         let balance = null;
         incomes.forEach((val) => {
-            balance = {date: val.iDate, credit: val.iCredit, balance: val.iCredit};
+            balance = {date: val.incomeDate, credit: val.incomeCredit, balance: val.incomeCredit};
         });
         return [balance];
     };
@@ -20,7 +20,7 @@ const BankAccount = function () {
     const toString = function () {
         let detailedBalance = 'date || credit || balance\r\n';
         incomes.forEach((val) => {
-            detailedBalance += `${val.iDate} || ${val.iCredit} || ${val.iCredit}\r\n`;
+            detailedBalance += `${val.incomeDate} || ${val.incomeCredit} || ${val.incomeCredit}\r\n`;
         });
 
         return detailedBalance;
